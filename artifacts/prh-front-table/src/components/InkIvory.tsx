@@ -386,7 +386,53 @@ export function InkIvory() {
     setIsLoading(false);
   };
 
-  const printReceipt = () => window.print();
+  const downloadReceipt = () => {
+    const pad = (s: string, n: number) => s + ' '.repeat(Math.max(0, n - s.length));
+    const width = 44;
+    const rule = '-'.repeat(width);
+    const dashed = '- '.repeat(Math.floor(width / 2));
+    const center = (s: string) => {
+      const space = Math.max(0, Math.floor((width - s.length) / 2));
+      return ' '.repeat(space) + s;
+    };
+    const kv = (k: string, v: string) => pad(k, 16) + v;
+    const lines: string[] = [];
+    lines.push(center('THE ARCHIVES'));
+    lines.push(center('Curated Reading Record'));
+    lines.push(rule);
+    lines.push(kv('DATE:', new Date().toLocaleDateString()));
+    lines.push(kv('CLERK:', '01-SYSTEM'));
+    lines.push(kv('MODE:', thomasMode ? 'APPLICANT' : 'VISITOR'));
+    lines.push(dashed);
+    lines.push('INPUT VARIABLES:');
+    if (!thomasMode && selections.length === QUESTIONS.length) {
+      QUESTIONS.forEach((q, i) => lines.push(`  > ${q.receiptLabel}: ${selections[i]}`));
+    } else {
+      lines.push('  Pre-selected applicant parameters');
+    }
+    lines.push(dashed);
+    lines.push('ISSUED TITLES:');
+    matchedBooks.forEach((b, i) => {
+      lines.push(`  ${String(i + 1).padStart(2, '0')}. ${b.t}`);
+      lines.push(`      by ${b.a}`);
+      lines.push(`      ${b.url}`);
+    });
+    lines.push(rule);
+    lines.push(center('*** END OF RECORD ***'));
+    lines.push('');
+
+    const text = lines.join('\n');
+    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    const stamp = new Date().toISOString().slice(0, 10);
+    a.href = url;
+    a.download = `the-archives_reading-record_${stamp}.txt`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <div className="ink-ivory-container ink-ivory-theme">
@@ -630,7 +676,7 @@ export function InkIvory() {
                   <div className="receipt-dashed-line mb-6"></div>
                   <div className="text-center font-mono text-[10px] space-y-4">
                     <div>*** END OF RECORD ***</div>
-                    <button onClick={printReceipt} className="border border-black px-4 py-2 hover:bg-black hover:text-[var(--receipt-bg)] transition-colors uppercase">Print Record</button>
+                    <button onClick={downloadReceipt} className="border border-black px-4 py-2 hover:bg-black hover:text-[var(--receipt-bg)] transition-colors uppercase">Download Record</button>
                   </div>
                 </div>
               </div>
