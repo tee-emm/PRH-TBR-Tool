@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --pb-bg: #F2E8D9;
+  --pb-text: #2D2824;
+  --pb-accent-warm: #C4623A;
+  --pb-accent-cool: #5C7A4A;
+  --pb-card: #FDFBF7;
+  --pb-border: rgba(196, 98, 58, 0.2);
+  --pb-muted: rgba(45, 40, 36, 0.6);
+}
+
+.pb-theme {
+  background-color: var(--pb-bg);
+  color: var(--pb-text);
+  font-family: 'Nunito', sans-serif;
+  min-height: 100vh;
+  /* subtle paper texture overlay */
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+}
+
+.pb-heading {
+  font-family: 'Lora', serif;
+}
+
+.pb-stamp {
+  display: inline-block;
+  color: #a33c30;
+  border: 4px solid #a33c30;
+  padding: 0.25rem 1rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-radius: 4px;
+  transform: rotate(-5deg);
+  opacity: 0;
+  animation: stamp-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes stamp-in {
+  0% { transform: scale(2) rotate(-15deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(1) rotate(-5deg); opacity: 0.85; }
+}
+
+.pb-receipt {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #FDFBF7;
+  border: 1px dashed #ccc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.pb-receipt::before, .pb-receipt::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-size: 16px 16px;
+}
+.pb-receipt::before {
+  top: -8px;
+  background-image: radial-gradient(circle at 8px 0, transparent 8px, #FDFBF7 9px);
+}
+.pb-receipt::after {
+  bottom: -8px;
+  background-image: radial-gradient(circle at 8px 16px, transparent 8px, #FDFBF7 9px);
+}
+
+.pb-card-hover {
+  transition: all 0.3s ease;
+}
+.pb-card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(45, 40, 36, 0.08);
+}

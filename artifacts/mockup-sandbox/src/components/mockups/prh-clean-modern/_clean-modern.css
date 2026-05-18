@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --cm-bg: #FFFFFF;
+  --cm-alt-bg: #F7F7F8;
+  --cm-text: #111111;
+  --cm-text-muted: #555555;
+  --cm-accent: #1D3A6E;
+  --cm-border: #E5E5E5;
+  
+  --cm-font-serif: 'Fraunces', serif;
+  --cm-font-sans: 'Inter', sans-serif;
+  --cm-font-mono: 'JetBrains Mono', monospace;
+}
+
+.cm-container {
+  font-family: var(--cm-font-sans);
+  color: var(--cm-text);
+  background-color: var(--cm-bg);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+.cm-heading {
+  font-family: var(--cm-font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+.cm-mono {
+  font-family: var(--cm-font-mono);
+}
+
+@keyframes cm-stamp {
+  0% {
+    opacity: 0;
+    transform: scale(1.5) rotate(-5deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(0.9) rotate(-2deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-3deg);
+  }
+}
+
+.cm-stamp-anim {
+  animation: cm-stamp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.cm-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cm-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.08);
+}
+
+.cm-print-only {
+  display: none;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .cm-receipt-section, .cm-receipt-section * {
+    visibility: visible;
+  }
+  .cm-receipt-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .cm-no-print {
+    display: none !important;
+  }
+}
