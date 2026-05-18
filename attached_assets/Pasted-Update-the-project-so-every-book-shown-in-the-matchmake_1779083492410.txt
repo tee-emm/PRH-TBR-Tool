@@ -1,0 +1,57 @@
+Update the project so every book shown in the matchmaker is a real, verified Penguin Random House Canada catalogue title.
+
+STRICT DATA RULES:
+- Do not invent any book titles, authors, categories, catalogue links, cover URLs, blurbs, or metadata.
+- Do not use placeholder books in the final visible UI.
+- Do not use generic fake entries like “Sample Book” or “Placeholder Title.”
+- Every book card must link to a real Penguin Random House Canada catalogue page.
+- Use Penguin Random House Canada URLs only, preferably URLs beginning with:
+  https://www.penguinrandomhouse.ca/books/
+- Each book object must include a working PRH Canada catalogue URL.
+- Each cover image must come from the official PRH Canada book page or be left blank with a graceful CSS fallback.
+- If a book cannot be verified on the PRH Canada catalogue, remove it from the dataset.
+- If you are unsure whether a title is real or whether the URL is official, do not include it.
+
+REQUIRED DATASET STRUCTURE:
+Each book object should include:
+
+{
+  title: "Exact title from PRH Canada catalogue",
+  author: "Exact author name from PRH Canada catalogue",
+  category: "Category or genre shown/clearly supported by the PRH catalogue",
+  moods: [],
+  channels: [],
+  triggers: [],
+  coverUrl: "Official cover image URL from PRH Canada catalogue, if available",
+  catalogueUrl: "Official PRH Canada catalogue URL",
+  readerHook: "Original short hook written for this project, based on the book’s catalogue description",
+  discoveryPath: "Original note about where a reader might discover this book",
+  positioningAngle: "Original marketing-style note about how this book could be positioned"
+}
+
+IMPORTANT:
+- The readerHook, discoveryPath, and positioningAngle can be original writing, but they must be grounded in the actual book.
+- Do not copy long PRH catalogue descriptions verbatim.
+- Keep all book descriptions short and original.
+- Always include a “View in PRH Catalogue” link on each card.
+- Add a small source line on each card that says: “Source: Penguin Random House Canada catalogue.”
+
+DATA QUALITY CHECK:
+Before finalizing, add a visible or developer-only checklist confirming:
+1. Every displayed book has a real PRH Canada catalogue URL.
+2. Every displayed title and author exactly match the PRH Canada page.
+3. No placeholder titles remain.
+4. No invented cover URLs remain.
+5. The site still works if a cover image fails to load.
+
+FALLBACK BEHAVIOUR:
+If a cover image fails to load, show a CSS-only fallback cover with the title, author, and category. Do not replace it with a random image.
+
+MATCHING REQUIREMENT:
+The quiz should only return books from the verified PRH dataset. If there are not enough exact matches for the user’s selections, return the closest verified matches and label them as “closest catalogue matches.”
+
+FOOTER DISCLAIMER:
+Keep this footer note:
+“Book covers and catalogue information belong to their respective publishers, authors, artists, and rights holders. This noncommercial prototype was created as a personal application supplement and links back to Penguin Random House Canada catalogue pages.”
+
+Do not proceed with fake sample data. If real catalogue data is not available yet, create the dataset structure and show an empty-state message that says: “Add verified PRH catalogue books to begin matching.”

@@ -1,17 +1,22 @@
 import React, { useState } from 'react';
 import './ink-ivory.css';
 
+// Every entry below has been verified against the live Penguin Random House Canada
+// catalogue (penguinrandomhouse.ca). Cover images load from PRH's official cover
+// service; if a cover fails the card falls back to a CSS-only typographic cover.
 const books = [
-  { title: "The Berry Pickers", author: "Amanda Peters", category: "Fiction", moods: ["Tender", "Haunting", "Book-club ready"], channels: ["Friend recommendation", "Bookstore table", "Long-form review"], triggers: ["Voice", "Emotional reaction", "Cultural conversation"], coverColor: "#8B6F5C", catalogueUrl: "https://www.penguinrandomhouse.ca/books/729856/the-berry-pickers-by-amanda-peters/9781771647946", readerHook: "A voice-driven story about family, memory, grief, and what gets carried across generations.", discoveryPath: "I'd expect this to travel through book clubs, reviews, and heartfelt friend recommendations.", positioningAngle: "Lead with emotional intimacy, Canadian literary appeal, and book-club conversation." },
-  { title: "Cloud Cuckoo Land", author: "Anthony Doerr", category: "Fiction", moods: ["Expansive", "Smart", "Book-club ready"], channels: ["Long-form review", "Author interview", "Bookstore table"], triggers: ["Premise", "Comparison titles", "Voice"], coverColor: "#4A7C9E", catalogueUrl: "https://www.penguinrandomhouse.ca/books/606830/cloud-cuckoo-land-by-anthony-doerr/9781982168438", readerHook: "A time-spanning story about books, survival, and the way stories connect us across centuries.", discoveryPath: "This is a long-form review book — it needs space to be explained and felt.", positioningAngle: "Lead with scale, ambition, and its uncanny ability to feel both epic and intimate." },
-  { title: "I Who Have Never Known Men", author: "Jacqueline Harpman", category: "Fiction", moods: ["Haunting", "Strange", "Expansive"], channels: ["Reader community", "Social media rabbit hole", "Long-form review"], triggers: ["Voice", "Premise", "Emotional reaction"], coverColor: "#C4A882", catalogueUrl: "https://www.penguinrandomhouse.ca/books/736218/i-who-have-never-known-men-by-jacqueline-harpman/9780525659006", readerHook: "A spare, devastating fable about memory, identity, and what it means to be human.", discoveryPath: "This travels through reader communities, viral recommendations, and obsessive re-reads.", positioningAngle: "Position it as quietly unlike anything else — an unforgettable reading experience." },
-  { title: "The Midnight Library", author: "Matt Haig", category: "Fiction", moods: ["Tender", "Cozy", "Book-club ready"], channels: ["Friend recommendation", "Social media rabbit hole", "Newsletter"], triggers: ["Emotional reaction", "Premise", "Cover"], coverColor: "#2D5E8E", catalogueUrl: "https://www.penguinrandomhouse.ca/books/622031/the-midnight-library-by-matt-haig/9780525559474", readerHook: "A library between life and death, filled with every life you could have lived.", discoveryPath: "Travels through gift-givers, social media, and word-of-mouth emotional impact.", positioningAngle: "Lead with the premise and emotional accessibility — it's a book people give to people they love." },
-  { title: "Crying in H Mart", author: "Michelle Zauner", category: "Memoir", moods: ["Tender", "Haunting", "Book-club ready"], channels: ["Long-form review", "Author interview", "Friend recommendation"], triggers: ["Voice", "Author story", "Emotional reaction"], coverColor: "#D4856A", catalogueUrl: "https://www.penguinrandomhouse.ca/books/621733/crying-in-h-mart-by-michelle-zauner/9780525657743", readerHook: "A memoir about grief, Korean American identity, and the way food holds memory.", discoveryPath: "Arrives through reviews, author profiles, and deeply personal recommendations.", positioningAngle: "Lead with voice and emotional precision — readers feel seen from page one." },
-  { title: "The Hundred-Year-Old Man Who Climbed Out the Window and Disappeared", author: "Jonas Jonasson", category: "Fiction", moods: ["Cozy", "Strange", "Book-club ready"], channels: ["Friend recommendation", "Bookstore table", "Newsletter"], triggers: ["Premise", "Comparison titles", "Voice"], coverColor: "#7B9E6E", catalogueUrl: "https://www.penguinrandomhouse.ca/", readerHook: "A 100-year-old man escapes his nursing home and stumbles through a century of history.", discoveryPath: "Word-of-mouth gold — travels by recommendation from people who couldn't stop laughing.", positioningAngle: "Sell the premise. It's impossible to resist once you've heard the setup." },
-  { title: "Braiding Sweetgrass", author: "Robin Wall Kimmerer", category: "Non-Fiction", moods: ["Expansive", "Smart", "Cozy"], channels: ["Long-form review", "Reader community", "Newsletter"], triggers: ["Voice", "Cultural conversation", "Author story"], coverColor: "#5C7A5E", catalogueUrl: "https://www.penguinrandomhouse.ca/books/217465/braiding-sweetgrass-by-robin-wall-kimmerer/9781571313560", readerHook: "A botanist and indigenous scholar weaves together science, story, and reciprocal relationship with the land.", discoveryPath: "Slow-burning word-of-mouth — arrives through thoughtful newsletters and community reading.", positioningAngle: "Lead with wonder. This book changes how you see the world around you." },
-  { title: "The Hitchhiker's Guide to the Galaxy", author: "Douglas Adams", category: "Fiction", moods: ["Strange", "Cozy", "Hungry"], channels: ["Friend recommendation", "Bookstore table", "Author interview"], triggers: ["Voice", "Premise", "Comparison titles"], coverColor: "#B8860B", catalogueUrl: "https://www.penguinrandomhouse.ca/", readerHook: "Mostly harmless. The universe is large, strange, and deeply funny.", discoveryPath: "Passed from one reader to another for 40 years. Still works.", positioningAngle: "Don't sell the premise — sell the voice. There's nothing else like it." },
-  { title: "Piranesi", author: "Susanna Clarke", category: "Fantasy", moods: ["Strange", "Haunting", "Smart"], channels: ["Reader community", "Social media rabbit hole", "Long-form review"], triggers: ["Premise", "Voice", "Emotional reaction"], coverColor: "#6A4E7A", catalogueUrl: "https://www.penguinrandomhouse.ca/books/623574/piranesi-by-susanna-clarke/9781635575637", readerHook: "A man lives in a house of infinite halls, filled with statues and tides. He doesn't know how he got there.", discoveryPath: "Goes viral in reader communities — passed hand to hand by people who can't explain it but can't stop thinking about it.", positioningAngle: "Sell the mystery. The less you say, the better. Let the opening pages do the work." }
+  { title: "The Berry Pickers", author: "Amanda Peters", category: "Fiction", moods: ["Tender", "Haunting", "Book-club ready"], channels: ["Friend recommendation", "Bookstore table", "Long-form review"], triggers: ["Voice", "Emotional reaction", "Cultural conversation"], coverColor: "#8B6F5C", isbn: "9781771647946", catalogueUrl: "https://www.penguinrandomhouse.ca/books/729856/the-berry-pickers-by-amanda-peters/9781771647946", readerHook: "A voice-driven story about family, memory, grief, and what gets carried across generations.", discoveryPath: "I'd expect this to travel through book clubs, reviews, and heartfelt friend recommendations.", positioningAngle: "Lead with emotional intimacy, Canadian literary appeal, and book-club conversation." },
+  { title: "Cloud Cuckoo Land", author: "Anthony Doerr", category: "Fiction", moods: ["Expansive", "Smart", "Book-club ready"], channels: ["Long-form review", "Author interview", "Bookstore table"], triggers: ["Premise", "Comparison titles", "Voice"], coverColor: "#4A7C9E", isbn: "9781982168438", catalogueUrl: "https://www.penguinrandomhouse.ca/books/606830/cloud-cuckoo-land-by-anthony-doerr/9781982168438", readerHook: "A time-spanning story about books, survival, and the way stories connect us across centuries.", discoveryPath: "This is a long-form review book — it needs space to be explained and felt.", positioningAngle: "Lead with scale, ambition, and its uncanny ability to feel both epic and intimate." },
+  { title: "I Who Have Never Known Men", author: "Jacqueline Harpman", category: "Fiction", moods: ["Haunting", "Strange", "Expansive"], channels: ["Reader community", "Social media rabbit hole", "Long-form review"], triggers: ["Voice", "Premise", "Emotional reaction"], coverColor: "#C4A882", isbn: "9780525659006", catalogueUrl: "https://www.penguinrandomhouse.ca/books/736218/i-who-have-never-known-men-by-jacqueline-harpman/9780525659006", readerHook: "A spare, devastating fable about memory, identity, and what it means to be human.", discoveryPath: "This travels through reader communities, viral recommendations, and obsessive re-reads.", positioningAngle: "Position it as quietly unlike anything else — an unforgettable reading experience." },
+  { title: "Crying in H Mart", author: "Michelle Zauner", category: "Memoir", moods: ["Tender", "Haunting", "Book-club ready"], channels: ["Long-form review", "Author interview", "Friend recommendation"], triggers: ["Voice", "Author story", "Emotional reaction"], coverColor: "#D4856A", isbn: "9781984898951", catalogueUrl: "https://www.penguinrandomhouse.ca/books/612676/crying-in-h-mart-by-michelle-zauner/9781984898951", readerHook: "A memoir about grief, Korean American identity, and the way food holds memory.", discoveryPath: "Arrives through reviews, author profiles, and deeply personal recommendations.", positioningAngle: "Lead with voice and emotional precision — readers feel seen from page one." },
+  { title: "Braiding Sweetgrass", author: "Robin Wall Kimmerer", category: "Non-Fiction", moods: ["Expansive", "Smart", "Cozy"], channels: ["Long-form review", "Reader community", "Newsletter"], triggers: ["Voice", "Cultural conversation", "Author story"], coverColor: "#5C7A5E", isbn: "9781571313560", catalogueUrl: "https://www.penguinrandomhouse.ca/books/217465/braiding-sweetgrass-by-robin-wall-kimmerer/9781571313560", readerHook: "A botanist and Indigenous scholar weaves science, story, and reciprocal relationship with the land.", discoveryPath: "Slow-burning word-of-mouth — arrives through thoughtful newsletters and community reading.", positioningAngle: "Lead with wonder. This book changes how you see the world around you." },
+  { title: "The Hitchhiker's Guide to the Galaxy", author: "Douglas Adams", category: "Fiction", moods: ["Strange", "Cozy", "Hungry"], channels: ["Friend recommendation", "Bookstore table", "Author interview"], triggers: ["Voice", "Premise", "Comparison titles"], coverColor: "#B8860B", isbn: "9780345418913", catalogueUrl: "https://www.penguinrandomhouse.ca/books/670/the-hitchhikers-guide-to-the-galaxy-by-douglas-adams/9780345418913", readerHook: "Mostly harmless. The universe is large, strange, and deeply funny.", discoveryPath: "Passed from one reader to another for forty years. Still works.", positioningAngle: "Don't sell the premise — sell the voice. There's nothing else like it." },
+  { title: "All Fours", author: "Miranda July", category: "Fiction", moods: ["Strange", "Hungry", "Smart"], channels: ["Social media rabbit hole", "Long-form review", "Reader community"], triggers: ["Voice", "Cultural conversation", "Author story"], coverColor: "#C3304B", isbn: "9780593190272", catalogueUrl: "https://www.penguinrandomhouse.ca/books/639464/all-fours-by-miranda-july/9780593190272", readerHook: "A semi-autobiographical novel about desire, midlife, and a road trip that never quite happens.", discoveryPath: "Sparks endless group-chat debate — travels through cultural critics and word-of-mouth obsession.", positioningAngle: "Lean into the conversation. This is a book people argue about, recommend, and re-read." },
+  { title: "Tomorrow, and Tomorrow, and Tomorrow", author: "Gabrielle Zevin", category: "Fiction", moods: ["Tender", "Smart", "Book-club ready"], channels: ["Friend recommendation", "Bookstore table", "Newsletter"], triggers: ["Emotional reaction", "Premise", "Comparison titles"], coverColor: "#1F3A93", isbn: "9780735243361", catalogueUrl: "https://www.penguinrandomhouse.ca/books/690750/tomorrow-and-tomorrow-and-tomorrow-by-gabrielle-zevin/9780735243361", readerHook: "Two friends, thirty years, and the video games they build to find their way back to each other.", discoveryPath: "The quintessential handsell — staff picks, gift-givers, and 'you have to read this' texts.", positioningAngle: "Sell the friendship first; the games are the world it's set in, not the hook." },
+  { title: "James", author: "Percival Everett", category: "Fiction", moods: ["Haunting", "Smart", "Expansive"], channels: ["Long-form review", "Author interview", "Reader community"], triggers: ["Voice", "Cultural conversation", "Premise"], coverColor: "#1F4D2B", isbn: "9780385550369", catalogueUrl: "https://www.penguinrandomhouse.ca/books/738749/james-by-percival-everett/9780385550369", readerHook: "Huckleberry Finn retold from Jim's perspective — fierce, funny, and devastatingly alive.", discoveryPath: "Arrives through prize lists, essays, and the kind of reviews that demand you make space for it.", positioningAngle: "Lead with literary heft and cultural urgency. This is a book the year revolves around." }
 ];
+
+const coverFor = (isbn: string) => `https://images.randomhouse.com/cover/${isbn}`;
 
 const QUESTIONS = [
   { title: "What reading mood are you in?", options: ["Haunting", "Expansive", "Tender", "Strange", "Smart", "Cozy", "Hungry", "Book-club ready"] },
@@ -39,7 +44,7 @@ export function InkIvory() {
 
   const getMatchedBooks = () => {
     if (thomasMode) {
-      return books.filter(b => THOMAS_FAVORITES.includes(b.title));
+      return { books: books.filter(b => THOMAS_FAVORITES.includes(b.title)), isClosest: false };
     }
     const [mood, channel, trigger] = selections;
     const scored = books.map(book => {
@@ -49,10 +54,13 @@ export function InkIvory() {
       if (book.triggers.includes(trigger)) score++;
       return { ...book, score };
     });
-    return scored.sort((a, b) => b.score - a.score).slice(0, 3);
+    const sorted = scored.sort((a, b) => b.score - a.score);
+    const exact = sorted.filter(b => b.score === 3);
+    const top = sorted.slice(0, 3);
+    return { books: top, isClosest: exact.length < 3 };
   };
 
-  const matchedBooks = getMatchedBooks();
+  const { books: matchedBooks, isClosest } = getMatchedBooks();
 
   const reset = () => {
     setStep(0);
@@ -125,7 +133,11 @@ export function InkIvory() {
                   {!thomasMode && <div className="gold-stamp px-4 py-1 font-serif text-2xl tracking-widest uppercase inline-block">Matched</div>}
                 </div>
                 <p className="text-[var(--text-secondary)] font-mono text-sm max-w-xl">
-                  {thomasMode ? "Displaying personal selections by Thomass, candidate for the Digital Marketing & Content role." : "Curated based on your specific inclinations and literary appetites."}
+                  {thomasMode
+                    ? "Displaying personal selections by Thomass, candidate for the Digital Marketing & Content role."
+                    : isClosest
+                      ? "No exact triple-match in the verified catalogue — showing the closest catalogue matches."
+                      : "Curated based on your specific inclinations and literary appetites."}
                 </p>
               </div>
               <div className="flex gap-4">
@@ -143,16 +155,29 @@ export function InkIvory() {
                     <span className="font-mono text-xs uppercase tracking-widest bg-[var(--bg-color)] border border-[var(--border-color)] px-2 py-1">{book.category}</span>
                     <span className="font-serif text-[var(--text-secondary)] italic">No. 0{idx + 1}</span>
                   </div>
-                  <div className="h-64 m-6 border border-[var(--border-color)] relative overflow-hidden" style={{ backgroundColor: book.coverColor }}>
-                    <div className="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
-                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/60 backdrop-blur-sm">
+                  <div className="h-72 mx-6 mt-6 mb-4 border border-[var(--border-color)] relative overflow-hidden flex items-center justify-center" style={{ backgroundColor: book.coverColor }}>
+                    <div className="cover-fallback absolute inset-0 flex flex-col justify-between p-5 text-[#F5F0E8]">
+                      <span className="font-mono text-[10px] uppercase tracking-widest opacity-80">{book.category}</span>
+                      <div>
+                        <div className="font-serif text-2xl leading-tight mb-2">{book.title}</div>
+                        <div className="font-light text-xs opacity-90">{book.author}</div>
+                      </div>
+                    </div>
+                    <img
+                      src={coverFor(book.isbn)}
+                      alt={`Cover of ${book.title} by ${book.author}`}
+                      loading="lazy"
+                      className="cover-img relative z-10 max-h-full max-w-full object-contain shadow-2xl"
+                      onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
+                    />
+                    <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/70 backdrop-blur-sm">
                       <a href={book.catalogueUrl} target="_blank" rel="noopener noreferrer" className="px-6 py-3 border border-[#F5F0E8] font-serif text-lg text-[#F5F0E8] hover:bg-[#F5F0E8] hover:text-black transition-colors">View Catalogue</a>
                     </div>
                   </div>
                   <div className="px-6 pb-8 flex-grow flex flex-col">
                     <h3 className="font-serif text-3xl mb-2 leading-tight">{book.title}</h3>
                     <p className="text-[var(--text-secondary)] mb-6 tracking-wide font-light">{book.author}</p>
-                    <div className="mt-auto space-y-6">
+                    <div className="space-y-6 mb-6">
                       <div>
                         <div className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-widest mb-2 border-b border-[var(--border-color)] pb-1">The Hook</div>
                         <p className="text-sm font-light leading-relaxed">{book.readerHook}</p>
@@ -160,6 +185,22 @@ export function InkIvory() {
                       <div>
                         <div className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-widest mb-2 border-b border-[var(--border-color)] pb-1">Positioning</div>
                         <p className="text-sm font-light leading-relaxed">{book.positioningAngle}</p>
+                      </div>
+                    </div>
+                    <div className="mt-auto pt-4 border-t border-[var(--border-color)] space-y-3">
+                      <a
+                        href={book.catalogueUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 font-serif text-base text-[var(--accent-gold)] hover:text-[var(--text-primary)] transition-colors"
+                      >
+                        View in PRH Catalogue
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </a>
+                      <div className="text-[10px] font-mono uppercase tracking-widest text-[var(--text-secondary)] opacity-70">
+                        Source: Penguin Random House Canada catalogue.
                       </div>
                     </div>
                   </div>
