@@ -341,6 +341,33 @@ export function InkIvory() {
 
   const { books: matchedBooks, isClosest } = getMatchedBooks();
 
+  const getMatchInfo = (book: Book) => {
+    const [mood, pace, channel, trigger, ending] = selections;
+    return [
+      { label: 'Mood', value: mood, matched: !!mood && book.moods.includes(mood) },
+      { label: 'Pace', value: pace, matched: !!pace && book.pacing.includes(pace) },
+      { label: 'Channel', value: channel, matched: !!channel && book.channels.includes(channel) },
+      { label: 'Spark', value: trigger, matched: !!trigger && book.triggers.includes(trigger) },
+      { label: 'Ending', value: ending, matched: !!ending && book.endings.includes(ending) },
+    ];
+  };
+
+  const formatList = (items: string[]) => {
+    if (items.length === 0) return '';
+    if (items.length === 1) return items[0].toLowerCase();
+    if (items.length === 2) return `${items[0].toLowerCase()} and ${items[1].toLowerCase()}`;
+    return `${items.slice(0, -1).map(i => i.toLowerCase()).join(', ')}, and ${items[items.length - 1].toLowerCase()}`;
+  };
+
+  const matchSentence = (info: ReturnType<typeof getMatchInfo>) => {
+    const matched = info.filter(i => i.matched).map(i => i.label);
+    const missed = info.filter(i => !i.matched).map(i => i.label);
+    if (matched.length === info.length) return 'A clean alignment across every input you gave us.';
+    if (matched.length === 0) return 'A curatorial wildcard — nothing matched on paper, but the shelf wanted you to see it.';
+    const lead = matched.length >= 3 ? 'Matched your' : 'Closest in the catalogue — caught your';
+    return `${lead} ${formatList(matched)}; quietly missed your ${formatList(missed)}.`;
+  };
+
   const reset = () => {
     setStep(0);
     setSelections([]);
@@ -437,7 +464,9 @@ export function InkIvory() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {matchedBooks.map((book, idx) => (
+              {matchedBooks.map((book, idx) => {
+                const info = thomasMode ? null : getMatchInfo(book);
+                return (
                 <div key={book.t} className="group flex flex-col bg-[var(--card-bg)] border border-[var(--border-color)] hover:border-[var(--text-secondary)] transition-colors duration-500" style={{ animationDelay: `${idx * 150}ms` }}>
                   <div className="p-6 border-b border-[var(--border-color)] flex justify-between items-start">
                     <span className="font-mono text-xs uppercase tracking-widest bg-[var(--bg-color)] border border-[var(--border-color)] px-2 py-1">{book.cat}</span>
@@ -474,6 +503,27 @@ export function InkIvory() {
                         <div className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-widest mb-2 border-b border-[var(--border-color)] pb-1">Positioning</div>
                         <p className="text-sm font-light leading-relaxed">{book.pos}</p>
                       </div>
+                      {info && (
+                        <div>
+                          <div className="text-[10px] font-mono text-[var(--text-secondary)] uppercase tracking-widest mb-2 border-b border-[var(--border-color)] pb-1">Why This Book</div>
+                          <p className="text-sm font-light italic leading-relaxed mb-3">{matchSentence(info)}</p>
+                          <div className="flex flex-wrap gap-2">
+                            {info.map(i => (
+                              <span
+                                key={i.label}
+                                title={i.value ? `${i.label}: ${i.value}` : i.label}
+                                className={
+                                  i.matched
+                                    ? 'px-2 py-0.5 border border-[var(--accent-gold)] text-[var(--accent-gold)] text-[10px] font-mono uppercase tracking-widest'
+                                    : 'px-2 py-0.5 border border-dashed border-[var(--border-color)] text-[var(--text-secondary)] opacity-50 text-[10px] font-mono uppercase tracking-widest line-through'
+                                }
+                              >
+                                {i.label}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                     <div className="mt-auto pt-4 border-t border-[var(--border-color)] space-y-3">
                       <a
@@ -493,7 +543,8 @@ export function InkIvory() {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 pt-16">
