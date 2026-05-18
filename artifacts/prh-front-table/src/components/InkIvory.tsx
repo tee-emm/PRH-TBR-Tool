@@ -495,8 +495,8 @@ export function InkIvory() {
                     <span className="font-mono text-xs uppercase tracking-widest bg-[var(--bg-color)] border border-[var(--border-color)] px-2 py-1">{book.cat}</span>
                     <span className="font-serif text-[var(--text-secondary)] italic">No. 0{idx + 1}</span>
                   </div>
-                  <div className="h-72 mx-6 mt-6 mb-4 border border-[var(--border-color)] relative overflow-hidden flex items-center justify-center" style={{ backgroundColor: book.cc }}>
-                    <div className="cover-fallback absolute inset-0 flex flex-col justify-between p-5 text-[#F5F0E8]">
+                  <div className="cover-stage h-80 mx-6 mt-6 mb-4 relative flex items-end justify-center">
+                    <div className="cover-fallback absolute inset-0 flex flex-col justify-between p-5 text-[#F5F0E8] border border-[var(--border-color)]" style={{ backgroundColor: book.cc }}>
                       <span className="font-mono text-[10px] uppercase tracking-widest opacity-80">{book.cat}</span>
                       <div>
                         <div className="font-serif text-2xl leading-tight mb-2">{book.t}</div>
@@ -507,10 +507,12 @@ export function InkIvory() {
                       src={coverFor(book.isbn)}
                       alt={`Cover of ${book.t} by ${book.a}`}
                       loading="lazy"
-                      className="cover-img relative z-10 max-h-full max-w-full object-contain shadow-2xl"
+                      className="cover-img relative z-10 max-h-full max-w-full object-contain"
                       onLoad={(e) => {
-                        const fb = (e.currentTarget as HTMLImageElement).previousElementSibling as HTMLElement | null;
+                        const img = e.currentTarget as HTMLImageElement;
+                        const fb = img.previousElementSibling as HTMLElement | null;
                         if (fb && fb.classList.contains('cover-fallback')) fb.style.display = 'none';
+                        img.classList.add('cover-img-loaded');
                       }}
                       onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                     />
