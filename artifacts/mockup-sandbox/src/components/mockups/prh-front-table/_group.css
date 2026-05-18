@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+.prh-app {
+  --prh-bg: #FAF8F5;
+  --prh-text: #2A2826;
+  --prh-muted: #595550;
+  --prh-accent: #D34C37;
+  --prh-card: #FFFFFF;
+  --prh-border: #E8E4DB;
+  
+  background-color: var(--prh-bg);
+  color: var(--prh-text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  min-height: 100dvh;
+}
+
+.prh-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.prh-mono {
+  font-family: 'Space Mono', monospace;
+}
+
+/* Rubber Stamp Animation */
+@keyframes stamp-in {
+  0% {
+    opacity: 0;
+    transform: scale(2) rotate(-15deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(0.9) rotate(-15deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(-15deg);
+  }
+}
+
+.animate-stamp {
+  animation: stamp-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* Slide Up Staggered */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  opacity: 0;
+  animation: slide-up 0.6s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-stamp, .animate-slide-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Sticker Badge */
+.prh-sticker {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 0 0 2px white;
+  border-radius: 4px;
+}
+
+/* Receipt styles */
+.prh-receipt-edge {
+  position: relative;
+  background: var(--prh-receipt, #F4F1EA);
+}
+.prh-receipt-edge::before, .prh-receipt-edge::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-size: 16px 16px;
+}
+.prh-receipt-edge::before {
+  top: -8px;
+  background-image: radial-gradient(circle at 8px 0, transparent 8px, #F4F1EA 9px);
+}
+.prh-receipt-edge::after {
+  bottom: -8px;
+  background-image: radial-gradient(circle at 8px 16px, transparent 8px, #F4F1EA 9px);
+}
+
+/* Print specific */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .prh-receipt-container, .prh-receipt-container * {
+    visibility: visible;
+  }
+  .prh-receipt-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: white !important;
+    box-shadow: none !important;
+  }
+  .prh-receipt-edge::before, .prh-receipt-edge::after {
+    display: none;
+  }
+}

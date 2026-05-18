@@ -1,0 +1,189 @@
+Paste this into Replit as your initial build prompt:
+Build a polished one-page interactive website called “Build Your PRH Front Table.”
+
+This is a cute, memorable application supplement for Penguin Random House Canada by Thomass Muir. It should feel like a tiny book-discovery toy: part bookstore staff-pick table, part TBR matchmaker, part catalogue browser, part receipt printer.
+
+IMPORTANT BUILD CONSTRAINTS:
+- Make everything responsive, accessible, keyboard-friendly, and fast.
+- Include reduced-motion support.
+- Use warm, bookish, visually polished styling.
+- Use a small hardcoded dataset of sample PRH catalogue titles.
+- Each book object should include: title, author, category, mood tags, discovery channels, TBR triggers, cover image URL, PRH catalogue URL, reader hook, discovery path, and positioning angle.
+- Use manually pasted PRH catalogue cover URLs as placeholders for now.
+- Display covers as linked catalogue references, not as downloadable assets.
+- Include a footer disclaimer: “Book covers and catalogue information belong to their respective publishers, authors, artists, and rights holders. This noncommercial prototype was created as a personal application supplement and links back to Penguin Random House Canada catalogue pages.”
+
+VISUAL DIRECTION:
+The site should be very eye-catching but buildable. Use:
+- Warm paper background
+- Bold editorial serif headline
+- Clean sans-serif UI text
+- Colourful book cards
+- Soft shadows
+- Rounded corners
+- CSS sticker labels
+- Catalogue tags
+- Staff-pick badges
+- Animated “MATCHED” stamp
+- Sliding card reveal
+- Receipt printer effect
+- A polished, slightly cute bookstore/catalogue feeling
+
+Do not make it look childish. It should feel charming, literary, thoughtful, and application-appropriate.
+
+SITE STRUCTURE:
+
+1. HERO SECTION
+Title:
+“Build Your PRH Front Table”
+
+Subtitle:
+“A tiny catalogue-powered reader discovery tool by Thomass Muir.”
+
+Intro copy:
+“I learn about books through patterns: the review that gives context, the reader reaction that gives urgency, the bookstore table that creates serendipity, and the interview that makes a book feel alive. This matchmaker turns those discovery habits into a small PRH starter shelf.”
+
+Button:
+“Start Matching”
+
+2. MATCHMAKER QUIZ
+Ask the user three questions.
+
+Question 1:
+“What reading mood are you in?”
+Options:
+- Haunting
+- Expansive
+- Tender
+- Strange
+- Smart
+- Cozy
+- Hungry
+- Book-club ready
+
+Question 2:
+“Where would this book most likely find you?”
+Options:
+- Bookstore table
+- Long-form review
+- Friend recommendation
+- Author interview
+- Newsletter
+- Reader community
+- Social media rabbit hole
+
+Question 3:
+“What makes you add a book to your TBR?”
+Options:
+- Voice
+- Premise
+- Cover
+- Cultural conversation
+- Emotional reaction
+- Comparison titles
+- Author story
+
+As the user answers, show a small progress shelf or selection summary:
+Mood: [selected]
+Channel: [selected]
+Trigger: [selected]
+
+3. MATCHED RESULT
+After the user answers all three questions, animate a “MATCHED” stamp and reveal:
+
+“Your PRH Starter Shelf”
+
+Show 3 matched book cards from the hardcoded dataset. Matching should be based on overlap between the user’s selected mood, channel, and trigger.
+
+Each book card should include:
+- Cover image
+- Category badge
+- Title
+- Author
+- Why this matched
+- Discovery path
+- How I’d position it
+- “View in PRH Catalogue” link
+
+Example fields:
+Why this matched:
+“This pick fits your interest in voice-driven, emotionally resonant books with strong reader conversation potential.”
+
+Discovery path:
+“I’d expect this to travel through book clubs, long-form reviews, and heartfelt friend recommendations.”
+
+How I’d position it:
+“Lead with emotional intimacy, memory, and the kind of story readers want to pass along.”
+
+4. THOMASS MODE
+Add a button or toggle:
+“Show Thomass’s Current Shelf”
+
+When clicked, reveal three favourite books:
+- Cloud Cuckoo Land
+- I Who Have Never Known Men
+- The Berry Pickers
+
+Include this copy:
+“These are the kinds of books that make me pay attention: layered, voice-driven, emotionally precise, and hard to shake. I’m drawn to stories about memory, survival, community, and the strange ways a book can stay with a reader long after finishing it.”
+
+5. APPLICANT INSIGHT CARD
+After the result, include a card titled:
+“What this says about me as an applicant”
+
+Copy:
+“I’m interested in the small decisions that help books find readers: the hook, the channel, the audience, the emotional entry point, and the language that makes someone curious enough to click, browse, borrow, or buy. As a designer and reader, I think about books through reader behaviour, positioning, accessibility, content design, and clear digital experiences.”
+
+6. READER DISCOVERY RECEIPT
+Generate a receipt-style takeaway based on the user’s selections.
+
+Receipt title:
+“PRH TBR Matchmaker Receipt”
+
+Include:
+- Mood: [selected mood]
+- Discovery channel: [selected channel]
+- TBR trigger: [selected trigger]
+- Matched shelf: [three selected book titles]
+- Discovery style: “Context + emotion + serendipity”
+- Applicant note: “Thomass Muir thinks about books through reader behaviour, positioning, accessibility, content design, and clear digital experiences.”
+
+Add a button:
+“Print / Save Receipt”
+
+Use window.print() and print-specific CSS so the receipt prints cleanly.
+
+7. SAMPLE DATASET
+Create at least 9 sample book objects. Use placeholder cover URLs and PRH catalogue URLs for now. I will manually replace them later.
+
+Use this structure:
+
+const books = [
+  {
+    title: "The Berry Pickers",
+    author: "Amanda Peters",
+    category: "Fiction",
+    moods: ["Tender", "Haunting", "Book-club ready"],
+    channels: ["Friend recommendation", "Bookstore table", "Long-form review"],
+    triggers: ["Voice", "Emotional reaction", "Cultural conversation"],
+    coverUrl: "PASTE_PRH_COVER_IMAGE_URL_HERE",
+    catalogueUrl: "PASTE_PRH_BOOK_PAGE_URL_HERE",
+    readerHook: "A voice-driven story about family, memory, grief, and what gets carried across generations.",
+    discoveryPath: "I’d expect this to travel through book clubs, reviews, and heartfelt friend recommendations.",
+    positioningAngle: "Lead with emotional intimacy, Canadian literary appeal, and book-club conversation."
+  }
+];
+
+Add similar placeholder entries for different categories, including fiction, memoir, cookbooks, classics, fantasy, children’s books, and audiobooks.
+
+8. ACCESSIBILITY REQUIREMENTS
+- Buttons must be real buttons.
+- Cards and modals must be keyboard accessible.
+- Images must have alt text.
+- Colour contrast should be readable.
+- Do not rely only on colour to show selected states.
+- Add focus states.
+- Respect prefers-reduced-motion.
+
+9. FINAL POLISH
+Make the site feel complete enough to send as an application supplement. It should be quick, charming, and memorable. The goal is to show that Thomass understands reader discovery, book positioning, digital UX, and how to create a polished interactive takeaway.
