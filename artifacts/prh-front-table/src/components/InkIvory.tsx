@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './ink-ivory.css';
+import penguinLogo from '@assets/image_1779085723877.png';
 
 const MOODS = [
   "Wreck me emotionally",
@@ -309,12 +310,22 @@ export function InkIvory() {
   const [step, setStep] = useState(0);
   const [selections, setSelections] = useState<string[]>([]);
   const [thomasMode, setThomasMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleOptionSelect = (option: string) => {
     const next = [...selections];
     next[step - 1] = option;
     setSelections(next);
-    setStep(step + 1);
+    const nextStep = step + 1;
+    if (nextStep > QUESTIONS.length) {
+      setIsLoading(true);
+      window.setTimeout(() => {
+        setStep(nextStep);
+        setIsLoading(false);
+      }, 1800);
+    } else {
+      setStep(nextStep);
+    }
   };
 
   const getMatchedBooks = () => {
@@ -372,12 +383,24 @@ export function InkIvory() {
     setStep(0);
     setSelections([]);
     setThomasMode(false);
+    setIsLoading(false);
   };
 
   const printReceipt = () => window.print();
 
   return (
     <div className="ink-ivory-container ink-ivory-theme">
+      {isLoading && (
+        <div className="penguin-loader-overlay" role="status" aria-label="Consulting the archives">
+          <div className="penguin-loader-stack">
+            <div className="penguin-loader-ring" aria-hidden="true"></div>
+            <img src={penguinLogo} alt="" className="penguin-loader-mark" />
+          </div>
+          <div className="penguin-loader-caption font-mono text-xs uppercase tracking-[0.4em]">
+            Consulting the Archives<span className="penguin-loader-dots" aria-hidden="true"></span>
+          </div>
+        </div>
+      )}
       <header className="p-6 md:p-10 border-b border-[var(--border-color)] flex justify-between items-center">
         <div className="font-serif text-2xl tracking-widest uppercase text-[var(--accent-gold)]">The Archives</div>
         <div className="text-sm tracking-widest uppercase text-[var(--text-secondary)]">Curated Discovery</div>
