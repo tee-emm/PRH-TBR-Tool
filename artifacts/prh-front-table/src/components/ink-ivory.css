@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
+
+.ink-ivory-theme {
+  --bg-color: #0F0D0B;
+  --text-primary: #F5F0E8;
+  --text-secondary: #C8BEB0;
+  --accent-gold: #C9A84C;
+  --card-bg: #1A1714;
+  --card-hover: #231f1c;
+  --border-color: #2D2824;
+  --receipt-bg: #EAE3D6;
+  --receipt-text: #2D2824;
+}
+
+.ink-ivory-container {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  min-height: 100dvh;
+}
+
+.ink-ivory-container ::selection {
+  background-color: var(--accent-gold);
+  color: var(--bg-color);
+}
+
+.ink-ivory-container .font-serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.ink-ivory-container .font-mono {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.gold-stamp {
+  color: var(--accent-gold);
+  border: 3px solid var(--accent-gold);
+  background: rgba(201, 168, 76, 0.05);
+  box-shadow: 0 0 15px rgba(201, 168, 76, 0.1), inset 0 0 10px rgba(201, 168, 76, 0.05);
+  animation: stamp-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes stamp-in {
+  0% { transform: scale(1.6) rotate(-8deg); opacity: 0; }
+  100% { transform: scale(1) rotate(-3deg); opacity: 1; }
+}
+
+.reader-receipt {
+  background-color: var(--receipt-bg);
+  color: var(--receipt-text);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  position: relative;
+}
+
+.reader-receipt::before, .reader-receipt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background-size: 20px 20px;
+}
+
+.reader-receipt::before {
+  top: -5px;
+  background-image: radial-gradient(circle at 10px 0, transparent 10px, var(--receipt-bg) 11px);
+}
+
+.reader-receipt::after {
+  bottom: -5px;
+  background-image: radial-gradient(circle at 10px 10px, transparent 10px, var(--receipt-bg) 11px);
+}
+
+.receipt-dashed-line {
+  border-bottom: 2px dashed #C8BEB0;
+}
+
+@media print {
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  .print-area { position: absolute; left: 0; top: 0; width: 100%; }
+}
