@@ -421,17 +421,43 @@ export function InkIvory() {
     lines.push(center('*** END OF RECORD ***'));
     lines.push('');
 
-    const text = lines.join('\n');
-    const blob = new Blob([text], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const scale = 2;
+    const fontPx = 14;
+    const lineH = 20;
+    const padX = 28;
+    const padY = 32;
+    const charW = fontPx * 0.6;
+    const contentW = Math.ceil(width * charW);
+    const cssW = contentW + padX * 2;
+    const cssH = padY * 2 + lines.length * lineH;
+
+    const canvas = document.createElement('canvas');
+    canvas.width = cssW * scale;
+    canvas.height = cssH * scale;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    ctx.scale(scale, scale);
+    ctx.fillStyle = '#FBF7EC';
+    ctx.fillRect(0, 0, cssW, cssH);
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = `${fontPx}px ui-monospace, "SF Mono", Menlo, Consolas, monospace`;
+    ctx.textBaseline = 'top';
+    lines.forEach((ln, i) => {
+      ctx.fillText(ln, padX, padY + i * lineH);
+    });
+
     const stamp = new Date().toISOString().slice(0, 10);
-    a.href = url;
-    a.download = `the-archives_reading-record_${stamp}.txt`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    canvas.toBlob((blob) => {
+      if (!blob) return;
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `the-archives_reading-record_${stamp}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 'image/png');
   };
 
   return (
