@@ -1,3 +1,11 @@
-<svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="180" rx="36" fill="#F47B20"/>
+  <g fill="none" stroke="#FBF7EC" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M40 54 Q90 38 140 54 L140 138 Q90 122 40 138 Z"/>
+    <line x1="90" y1="50" x2="90" y2="134"/>
+    <path d="M55 72 Q72 66 86 70"/>
+    <path d="M55 92 Q72 86 86 90"/>
+    <path d="M94 70 Q108 66 125 72"/>
+    <path d="M94 90 Q108 86 125 92"/>
+  </g>
 </svg>
