@@ -1,0 +1,920 @@
+{
+  "log": {
+    "version": "1.2",
+    "creator": {
+      "name": "WebInspector",
+      "version": "537.36"
+    },
+    "pages": [
+      {
+        "startedDateTime": "2026-05-18T07:15:18.816Z",
+        "id": "page_1",
+        "title": "https://tbr.thomassmuir.com/",
+        "pageTimings": {
+          "onContentLoad": 86.43500000107451,
+          "onLoad": 189.98600000122678
+        }
+      }
+    ],
+    "entries": [
+      {
+        "_initiator": {
+          "type": "other"
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "document",
+        "cache": {},
+        "connection": "443",
+        "request": {
+          "method": "GET",
+          "url": "https://tbr.thomassmuir.com/",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": ":authority",
+              "value": "tbr.thomassmuir.com"
+            },
+            {
+              "name": ":method",
+              "value": "GET"
+            },
+            {
+              "name": ":path",
+              "value": "/"
+            },
+            {
+              "name": ":scheme",
+              "value": "https"
+            },
+            {
+              "name": "accept",
+              "value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7"
+            },
+            {
+              "name": "accept-encoding",
+              "value": "gzip, deflate, br, zstd"
+            },
+            {
+              "name": "accept-language",
+              "value": "en-CA,en;q=0.9,en-US;q=0.8"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=0"
+            },
+            {
+              "name": "if-modified-since",
+              "value": "Mon, 18 May 2026 07:12:02 GMT"
+            },
+            {
+              "name": "priority",
+              "value": "u=0, i"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "sec-fetch-dest",
+              "value": "document"
+            },
+            {
+              "name": "sec-fetch-mode",
+              "value": "navigate"
+            },
+            {
+              "name": "sec-fetch-site",
+              "value": "cross-site"
+            },
+            {
+              "name": "sec-fetch-user",
+              "value": "?1"
+            },
+            {
+              "name": "upgrade-insecure-requests",
+              "value": "1"
+            },
+            {
+              "name": "user-agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 304,
+          "statusText": "",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "alt-svc",
+              "value": "h3=\":443\"; ma=86400"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=600"
+            },
+            {
+              "name": "cf-cache-status",
+              "value": "DYNAMIC"
+            },
+            {
+              "name": "cf-ray",
+              "value": "9fd911eb283497b9-YYZ"
+            },
+            {
+              "name": "date",
+              "value": "Mon, 18 May 2026 07:15:18 GMT"
+            },
+            {
+              "name": "etag",
+              "value": "W/\"6a0abbc2-71b\""
+            },
+            {
+              "name": "expires",
+              "value": "Mon, 18 May 2026 07:25:18 GMT"
+            },
+            {
+              "name": "nel",
+              "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+            },
+            {
+              "name": "report-to",
+              "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=XRRajbPSm1h94DYfYXs%2F62iNpKWhJLm%2B8RFcUa0O2lRiDtIf0KRxsEpQLV6sd8sk0f5WGQMgiayk0KF1k4PI2aVNmIi4KsKp3qXodW8Cqq7wND4bEbTunBJttE8Z20qcseK7WqTsvWmkXKyxZKnB%2B1%2BD\"}]}"
+            },
+            {
+              "name": "server",
+              "value": "cloudflare"
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "via",
+              "value": "1.1 varnish"
+            },
+            {
+              "name": "x-cache",
+              "value": "MISS"
+            },
+            {
+              "name": "x-cache-hits",
+              "value": "0"
+            },
+            {
+              "name": "x-fastly-request-id",
+              "value": "a245a4a713a9cc4ba332f2929fdfd0568126c2ff"
+            },
+            {
+              "name": "x-served-by",
+              "value": "cache-yyz4559-YYZ"
+            },
+            {
+              "name": "x-timer",
+              "value": "S1779088519.917303,VS0,VE25"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 2122,
+            "mimeType": "text/html"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 373,
+          "_error": null,
+          "_fetchedViaServiceWorker": false
+        },
+        "serverIPAddress": "[2606:4700:130:436c:6f75:6466:6c61:7265]",
+        "startedDateTime": "2026-05-18T07:15:18.814Z",
+        "time": 63.63000000055763,
+        "timings": {
+          "blocked": 3.931999998092884,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0.16000000000000014,
+          "wait": 59.01099999867938,
+          "receive": 0.5270000037853606,
+          "_blocked_queueing": 1.7459999980928842,
+          "_workerStart": -1,
+          "_workerReady": -1,
+          "_workerFetchStart": -1,
+          "_workerRespondWithSettled": -1
+        },
+        "_connectionId": "270721",
+        "pageref": "page_1"
+      },
+      {
+        "_initiator": {
+          "type": "parser",
+          "url": "https://tbr.thomassmuir.com/",
+          "lineNumber": 17
+        },
+        "_priority": "High",
+        "_resourceType": "script",
+        "cache": {},
+        "connection": "443",
+        "request": {
+          "method": "GET",
+          "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "Referer",
+              "value": "https://tbr.thomassmuir.com/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "cache-control",
+              "value": "public"
+            },
+            {
+              "name": "nel",
+              "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+            },
+            {
+              "name": "content-encoding",
+              "value": "zstd"
+            },
+            {
+              "name": "report-to",
+              "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=R88D5LXjG0N9zbYacSrEbx17j2e11Q1QATDL9RIyebbM%2Bt2fZLlxDR9rbqctLmuU%2BYjuRr4TOYUFedKUJFmnwY6aClecVi9THwNq1qOBOUOX9uQr0hwXK20gdwpI9Ijb6JrTCMQP2aHvVCa%2FxQpJ2fvS\"}]}"
+            },
+            {
+              "name": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "name": "cf-ray",
+              "value": "9fd9111d197f299a-YYZ"
+            },
+            {
+              "name": "expires",
+              "value": "Wed, 20 May 2026 07:14:45 GMT"
+            },
+            {
+              "name": "date",
+              "value": "Mon, 18 May 2026 07:14:45 GMT"
+            },
+            {
+              "name": "content-type",
+              "value": "application/javascript"
+            },
+            {
+              "name": "vary",
+              "value": "accept-encoding"
+            },
+            {
+              "name": "server",
+              "value": "cloudflare"
+            },
+            {
+              "name": "x-frame-options",
+              "value": "DENY"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 12332,
+            "mimeType": "application/javascript"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0,
+          "_error": null,
+          "_fetchedViaServiceWorker": false
+        },
+        "serverIPAddress": "[2606:4700:130:436c:6f75:6466:6c61:7265]",
+        "startedDateTime": "2026-05-18T07:15:18.890Z",
+        "time": 0.05400000009103678,
+        "timings": {
+          "blocked": -1,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.04199999966658652,
+          "receive": 0.012000000424450263,
+          "_blocked_queueing": -1
+        },
+        "_fromCache": "memory",
+        "_connectionId": "270715",
+        "pageref": "page_1"
+      },
+      {
+        "_initiator": {
+          "type": "parser",
+          "url": "https://tbr.thomassmuir.com/",
+          "lineNumber": 20
+        },
+        "_priority": "VeryHigh",
+        "_resourceType": "stylesheet",
+        "cache": {},
+        "connection": "443",
+        "request": {
+          "method": "GET",
+          "url": "https://tbr.thomassmuir.com/PRH-TBR-Tool/assets/index-C5thljPs.css",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "https://tbr.thomassmuir.com"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "Referer",
+              "value": "https://tbr.thomassmuir.com/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 404,
+          "statusText": "",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "x-fastly-request-id",
+              "value": "54e5cae71a4c684b41782cd1e2017490b6e8fbb1"
+            },
+            {
+              "name": "content-encoding",
+              "value": "zstd"
+            },
+            {
+              "name": "cf-cache-status",
+              "value": "HIT"
+            },
+            {
+              "name": "age",
+              "value": "159"
+            },
+            {
+              "name": "report-to",
+              "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=E51GR3PkaFgS9UaYYRuKKvWnS9a%2FyI%2BrBBfc49JI%2Fae%2FlLHMJkdN%2BP%2FE992U7GMtjjLz%2Fzeyk6LEagDuhvAeFlDAStu1q1X3MVepz%2BNib%2BrT8qZ37ygQ7A%2F8EhJ%2Bmf8W6NC45JJ8Jzw3E9lr19MV3fuD\"}]}"
+            },
+            {
+              "name": "x-github-request-id",
+              "value": "909A:1C56:150A562:168D4B7:6A0ABBC6"
+            },
+            {
+              "name": "x-proxy-cache",
+              "value": "MISS"
+            },
+            {
+              "name": "alt-svc",
+              "value": "h3=\":443\"; ma=86400"
+            },
+            {
+              "name": "x-cache",
+              "value": "MISS"
+            },
+            {
+              "name": "server-timing",
+              "value": "cfExtPri"
+            },
+            {
+              "name": "date",
+              "value": "Mon, 18 May 2026 07:14:45 GMT"
+            },
+            {
+              "name": "content-type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "name": "x-served-by",
+              "value": "cache-yyz4580-YYZ"
+            },
+            {
+              "name": "x-cache-hits",
+              "value": "0"
+            },
+            {
+              "name": "priority",
+              "value": "u=0,i=?0"
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "nel",
+              "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=14400"
+            },
+            {
+              "name": "x-timer",
+              "value": "S1779088327.771508,VS0,VE23"
+            },
+            {
+              "name": "via",
+              "value": "1.1 varnish"
+            },
+            {
+              "name": "cf-ray",
+              "value": "9fd9111d1981299a-YYZ"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "x-origin-cache",
+              "value": "HIT"
+            },
+            {
+              "name": "server",
+              "value": "cloudflare"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "text/html"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0,
+          "_error": "net::ERR_ABORTED",
+          "_fetchedViaServiceWorker": false
+        },
+        "serverIPAddress": "[2606:4700:130:436c:6f75:6466:6c61:7265]",
+        "startedDateTime": "2026-05-18T07:15:18.890Z",
+        "time": 11.413000000175089,
+        "timings": {
+          "blocked": 6.554000000194181,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.14200000018044356,
+          "receive": 4.716999999800464,
+          "_blocked_queueing": 4.471000000194181,
+          "_workerStart": -1,
+          "_workerReady": -1,
+          "_workerFetchStart": -1,
+          "_workerRespondWithSettled": -1
+        },
+        "_fromCache": "disk",
+        "pageref": "page_1"
+      },
+      {
+        "_initiator": {
+          "type": "parser",
+          "url": "https://tbr.thomassmuir.com/",
+          "lineNumber": 17
+        },
+        "_priority": "VeryLow",
+        "_resourceType": "stylesheet",
+        "cache": {},
+        "connection": "443",
+        "request": {
+          "method": "GET",
+          "url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "Referer",
+              "value": "https://tbr.thomassmuir.com/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            }
+          ],
+          "queryString": [
+            {
+              "name": "family",
+              "value": "Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400"
+            },
+            {
+              "name": "family",
+              "value": "Inter:wght@300;400;500"
+            },
+            {
+              "name": "display",
+              "value": "swap"
+            }
+          ],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 200,
+          "statusText": "",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "content-encoding",
+              "value": "gzip"
+            },
+            {
+              "name": "x-content-type-options",
+              "value": "nosniff"
+            },
+            {
+              "name": "expires",
+              "value": "Mon, 18 May 2026 07:14:45 GMT"
+            },
+            {
+              "name": "alt-svc",
+              "value": "h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000"
+            },
+            {
+              "name": "date",
+              "value": "Mon, 18 May 2026 07:14:45 GMT"
+            },
+            {
+              "name": "content-type",
+              "value": "text/css; charset=utf-8"
+            },
+            {
+              "name": "vary",
+              "value": "Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site"
+            },
+            {
+              "name": "last-modified",
+              "value": "Mon, 18 May 2026 07:14:45 GMT"
+            },
+            {
+              "name": "x-frame-options",
+              "value": "SAMEORIGIN"
+            },
+            {
+              "name": "strict-transport-security",
+              "value": "max-age=31536000"
+            },
+            {
+              "name": "link",
+              "value": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin"
+            },
+            {
+              "name": "cache-control",
+              "value": "private, max-age=86400, stale-while-revalidate=604800"
+            },
+            {
+              "name": "timing-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "cross-origin-opener-policy",
+              "value": "same-origin-allow-popups"
+            },
+            {
+              "name": "cross-origin-resource-policy",
+              "value": "cross-origin"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "x-xss-protection",
+              "value": "0"
+            },
+            {
+              "name": "server",
+              "value": "ESF"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 19887,
+            "mimeType": "text/css"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0,
+          "_error": null,
+          "_fetchedViaServiceWorker": false
+        },
+        "serverIPAddress": "[2607:f8b0:4023:1804::5f]",
+        "startedDateTime": "2026-05-18T07:15:18.897Z",
+        "time": 0.07499999992433004,
+        "timings": {
+          "blocked": -1,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.06299999949987978,
+          "receive": 0.012000000424450263,
+          "_blocked_queueing": -1
+        },
+        "_fromCache": "memory",
+        "_connectionId": "270749",
+        "pageref": "page_1"
+      },
+      {
+        "_initiator": {
+          "type": "script",
+          "stack": {
+            "callFrames": [
+              {
+                "functionName": "",
+                "scriptId": "481",
+                "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+                "lineNumber": 0,
+                "columnNumber": 10717
+              },
+              {
+                "functionName": "",
+                "scriptId": "481",
+                "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+                "lineNumber": 0,
+                "columnNumber": 4281
+              },
+              {
+                "functionName": "t.forEach",
+                "scriptId": "481",
+                "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+                "lineNumber": 0,
+                "columnNumber": 4239
+              },
+              {
+                "functionName": "t.insertPreloadHints",
+                "scriptId": "481",
+                "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+                "lineNumber": 0,
+                "columnNumber": 10418
+              },
+              {
+                "functionName": "x",
+                "scriptId": "481",
+                "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+                "lineNumber": 0,
+                "columnNumber": 2860
+              },
+              {
+                "functionName": "",
+                "scriptId": "481",
+                "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+                "lineNumber": 0,
+                "columnNumber": 12168
+              },
+              {
+                "functionName": "",
+                "scriptId": "481",
+                "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+                "lineNumber": 0,
+                "columnNumber": 12325
+              },
+              {
+                "functionName": "",
+                "scriptId": "481",
+                "url": "https://tbr.thomassmuir.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
+                "lineNumber": 0,
+                "columnNumber": 12328
+              }
+            ]
+          }
+        },
+        "_priority": "High",
+        "_resourceType": "script",
+        "cache": {},
+        "connection": "443",
+        "request": {
+          "method": "GET",
+          "url": "https://tbr.thomassmuir.com/PRH-TBR-Tool/assets/index-CEjlQpCL.js",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "Origin",
+              "value": "https://tbr.thomassmuir.com"
+            },
+            {
+              "name": "sec-ch-ua-platform",
+              "value": "\"macOS\""
+            },
+            {
+              "name": "Referer",
+              "value": "https://tbr.thomassmuir.com/"
+            },
+            {
+              "name": "User-Agent",
+              "value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36"
+            },
+            {
+              "name": "sec-ch-ua",
+              "value": "\"Chromium\";v=\"148\", \"Google Chrome\";v=\"148\", \"Not/A)Brand\";v=\"99\""
+            },
+            {
+              "name": "sec-ch-ua-mobile",
+              "value": "?0"
+            }
+          ],
+          "queryString": [],
+          "cookies": [],
+          "headersSize": -1,
+          "bodySize": 0
+        },
+        "response": {
+          "status": 404,
+          "statusText": "",
+          "httpVersion": "h3",
+          "headers": [
+            {
+              "name": "x-fastly-request-id",
+              "value": "5c1530d094ebf7ac01e144a9c70227b3e36f02e9"
+            },
+            {
+              "name": "content-encoding",
+              "value": "zstd"
+            },
+            {
+              "name": "cf-cache-status",
+              "value": "HIT"
+            },
+            {
+              "name": "age",
+              "value": "159"
+            },
+            {
+              "name": "report-to",
+              "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=bPLe%2B4HdVqpIG7eK%2FTGrXXNSkFKS4cn2dipxq1%2FdZhoCHPYDA2Gqp0e4MjdrNaDxsP9aDCDViy6X2LA0nHFlYWJpWm66BKpfDKWjwy65DDQ5q73YDRXUvcJqV7y3mJzMHSWCbnTdRMTRIBboqivMMbZw\"}]}"
+            },
+            {
+              "name": "x-github-request-id",
+              "value": "CFEE:142E8F:1DB6EA2:1FFAD08:6A0ABBC6"
+            },
+            {
+              "name": "x-proxy-cache",
+              "value": "MISS"
+            },
+            {
+              "name": "alt-svc",
+              "value": "h3=\":443\"; ma=86400"
+            },
+            {
+              "name": "x-cache",
+              "value": "MISS"
+            },
+            {
+              "name": "server-timing",
+              "value": "cfExtPri"
+            },
+            {
+              "name": "date",
+              "value": "Mon, 18 May 2026 07:14:45 GMT"
+            },
+            {
+              "name": "content-type",
+              "value": "text/html; charset=utf-8"
+            },
+            {
+              "name": "x-served-by",
+              "value": "cache-yyz4547-YYZ"
+            },
+            {
+              "name": "x-cache-hits",
+              "value": "0"
+            },
+            {
+              "name": "priority",
+              "value": "u=1,i=?0"
+            },
+            {
+              "name": "vary",
+              "value": "Accept-Encoding"
+            },
+            {
+              "name": "nel",
+              "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+            },
+            {
+              "name": "cache-control",
+              "value": "max-age=14400"
+            },
+            {
+              "name": "x-timer",
+              "value": "S1779088327.835315,VS0,VE33"
+            },
+            {
+              "name": "via",
+              "value": "1.1 varnish"
+            },
+            {
+              "name": "cf-ray",
+              "value": "9fd9111d698a299a-YYZ"
+            },
+            {
+              "name": "access-control-allow-origin",
+              "value": "*"
+            },
+            {
+              "name": "server",
+              "value": "cloudflare"
+            }
+          ],
+          "cookies": [],
+          "content": {
+            "size": 0,
+            "mimeType": "text/html"
+          },
+          "redirectURL": "",
+          "headersSize": -1,
+          "bodySize": 0,
+          "_transferSize": 0,
+          "_error": "net::ERR_ABORTED",
+          "_fetchedViaServiceWorker": false
+        },
+        "serverIPAddress": "[2606:4700:130:436c:6f75:6466:6c61:7265]",
+        "startedDateTime": "2026-05-18T07:15:18.902Z",
+        "time": 62.351000000489876,
+        "timings": {
+          "blocked": 1.0530000010014047,
+          "dns": -1,
+          "ssl": -1,
+          "connect": -1,
+          "send": 0,
+          "wait": 0.4920000018053688,
+          "receive": 60.8059999976831,
+          "_blocked_queueing": 0.5940000010014046,
+          "_workerStart": -1,
+          "_workerReady": -1,
+          "_workerFetchStart": -1,
+          "_workerRespondWithSettled": -1
+        },
+        "_fromCache": "disk",
+        "pageref": "page_1"
+      }
+    ]
+  }
+}
