@@ -508,6 +508,10 @@ export function InkIvory() {
                       alt={`Cover of ${book.t} by ${book.a}`}
                       loading="lazy"
                       className="cover-img relative z-10 max-h-full max-w-full object-contain shadow-2xl"
+                      onLoad={(e) => {
+                        const fb = (e.currentTarget as HTMLImageElement).previousElementSibling as HTMLElement | null;
+                        if (fb && fb.classList.contains('cover-fallback')) fb.style.display = 'none';
+                      }}
                       onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                     />
                     <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-black/70 backdrop-blur-sm">
