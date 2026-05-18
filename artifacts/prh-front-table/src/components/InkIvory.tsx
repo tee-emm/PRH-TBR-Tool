@@ -1,30 +1,160 @@
 import React, { useState } from 'react';
 import './ink-ivory.css';
 
-// Every entry below has been verified against the live Penguin Random House Canada
-// catalogue (penguinrandomhouse.ca). Cover images load from PRH's official cover
-// service; if a cover fails the card falls back to a CSS-only typographic cover.
-const books = [
-  { title: "The Berry Pickers", author: "Amanda Peters", category: "Fiction", moods: ["Tender", "Haunting", "Book-club ready"], channels: ["Friend recommendation", "Bookstore table", "Long-form review"], triggers: ["Voice", "Emotional reaction", "Cultural conversation"], coverColor: "#8B6F5C", isbn: "9781771647946", catalogueUrl: "https://www.penguinrandomhouse.ca/books/729856/the-berry-pickers-by-amanda-peters/9781771647946", readerHook: "A voice-driven story about family, memory, grief, and what gets carried across generations.", discoveryPath: "I'd expect this to travel through book clubs, reviews, and heartfelt friend recommendations.", positioningAngle: "Lead with emotional intimacy, Canadian literary appeal, and book-club conversation." },
-  { title: "Cloud Cuckoo Land", author: "Anthony Doerr", category: "Fiction", moods: ["Expansive", "Smart", "Book-club ready"], channels: ["Long-form review", "Author interview", "Bookstore table"], triggers: ["Premise", "Comparison titles", "Voice"], coverColor: "#4A7C9E", isbn: "9781982168438", catalogueUrl: "https://www.penguinrandomhouse.ca/books/606830/cloud-cuckoo-land-by-anthony-doerr/9781982168438", readerHook: "A time-spanning story about books, survival, and the way stories connect us across centuries.", discoveryPath: "This is a long-form review book — it needs space to be explained and felt.", positioningAngle: "Lead with scale, ambition, and its uncanny ability to feel both epic and intimate." },
-  { title: "I Who Have Never Known Men", author: "Jacqueline Harpman", category: "Fiction", moods: ["Haunting", "Strange", "Expansive"], channels: ["Reader community", "Social media rabbit hole", "Long-form review"], triggers: ["Voice", "Premise", "Emotional reaction"], coverColor: "#C4A882", isbn: "9780525659006", catalogueUrl: "https://www.penguinrandomhouse.ca/books/736218/i-who-have-never-known-men-by-jacqueline-harpman/9780525659006", readerHook: "A spare, devastating fable about memory, identity, and what it means to be human.", discoveryPath: "This travels through reader communities, viral recommendations, and obsessive re-reads.", positioningAngle: "Position it as quietly unlike anything else — an unforgettable reading experience." },
-  { title: "Crying in H Mart", author: "Michelle Zauner", category: "Memoir", moods: ["Tender", "Haunting", "Book-club ready"], channels: ["Long-form review", "Author interview", "Friend recommendation"], triggers: ["Voice", "Author story", "Emotional reaction"], coverColor: "#D4856A", isbn: "9781984898951", catalogueUrl: "https://www.penguinrandomhouse.ca/books/612676/crying-in-h-mart-by-michelle-zauner/9781984898951", readerHook: "A memoir about grief, Korean American identity, and the way food holds memory.", discoveryPath: "Arrives through reviews, author profiles, and deeply personal recommendations.", positioningAngle: "Lead with voice and emotional precision — readers feel seen from page one." },
-  { title: "Braiding Sweetgrass", author: "Robin Wall Kimmerer", category: "Non-Fiction", moods: ["Expansive", "Smart", "Cozy"], channels: ["Long-form review", "Reader community", "Newsletter"], triggers: ["Voice", "Cultural conversation", "Author story"], coverColor: "#5C7A5E", isbn: "9781571313560", catalogueUrl: "https://www.penguinrandomhouse.ca/books/217465/braiding-sweetgrass-by-robin-wall-kimmerer/9781571313560", readerHook: "A botanist and Indigenous scholar weaves science, story, and reciprocal relationship with the land.", discoveryPath: "Slow-burning word-of-mouth — arrives through thoughtful newsletters and community reading.", positioningAngle: "Lead with wonder. This book changes how you see the world around you." },
-  { title: "The Hitchhiker's Guide to the Galaxy", author: "Douglas Adams", category: "Fiction", moods: ["Strange", "Cozy", "Hungry"], channels: ["Friend recommendation", "Bookstore table", "Author interview"], triggers: ["Voice", "Premise", "Comparison titles"], coverColor: "#B8860B", isbn: "9780345418913", catalogueUrl: "https://www.penguinrandomhouse.ca/books/670/the-hitchhikers-guide-to-the-galaxy-by-douglas-adams/9780345418913", readerHook: "Mostly harmless. The universe is large, strange, and deeply funny.", discoveryPath: "Passed from one reader to another for forty years. Still works.", positioningAngle: "Don't sell the premise — sell the voice. There's nothing else like it." },
-  { title: "All Fours", author: "Miranda July", category: "Fiction", moods: ["Strange", "Hungry", "Smart"], channels: ["Social media rabbit hole", "Long-form review", "Reader community"], triggers: ["Voice", "Cultural conversation", "Author story"], coverColor: "#C3304B", isbn: "9780593190272", catalogueUrl: "https://www.penguinrandomhouse.ca/books/639464/all-fours-by-miranda-july/9780593190272", readerHook: "A semi-autobiographical novel about desire, midlife, and a road trip that never quite happens.", discoveryPath: "Sparks endless group-chat debate — travels through cultural critics and word-of-mouth obsession.", positioningAngle: "Lean into the conversation. This is a book people argue about, recommend, and re-read." },
-  { title: "Tomorrow, and Tomorrow, and Tomorrow", author: "Gabrielle Zevin", category: "Fiction", moods: ["Tender", "Smart", "Book-club ready"], channels: ["Friend recommendation", "Bookstore table", "Newsletter"], triggers: ["Emotional reaction", "Premise", "Comparison titles"], coverColor: "#1F3A93", isbn: "9780735243361", catalogueUrl: "https://www.penguinrandomhouse.ca/books/690750/tomorrow-and-tomorrow-and-tomorrow-by-gabrielle-zevin/9780735243361", readerHook: "Two friends, thirty years, and the video games they build to find their way back to each other.", discoveryPath: "The quintessential handsell — staff picks, gift-givers, and 'you have to read this' texts.", positioningAngle: "Sell the friendship first; the games are the world it's set in, not the hook." },
-  { title: "James", author: "Percival Everett", category: "Fiction", moods: ["Haunting", "Smart", "Expansive"], channels: ["Long-form review", "Author interview", "Reader community"], triggers: ["Voice", "Cultural conversation", "Premise"], coverColor: "#1F4D2B", isbn: "9780385550369", catalogueUrl: "https://www.penguinrandomhouse.ca/books/738749/james-by-percival-everett/9780385550369", readerHook: "Huckleberry Finn retold from Jim's perspective — fierce, funny, and devastatingly alive.", discoveryPath: "Arrives through prize lists, essays, and the kind of reviews that demand you make space for it.", positioningAngle: "Lead with literary heft and cultural urgency. This is a book the year revolves around." }
+// Every entry below has been live-verified against the Penguin Random House Canada
+// catalogue (page returns the actual book, not the SPA shell). Cover images load
+// from PRH's official cover service keyed by the same ISBN as the catalogue URL,
+// so titles, descriptions, covers, and links all point at the same edition.
+// If a cover ever fails to load, the card falls back to a CSS-only typographic cover.
+type Book = {
+  title: string; author: string; category: string;
+  moods: string[]; channels: string[]; triggers: string[];
+  coverColor: string; isbn: string; catalogueUrl: string;
+  readerHook: string; discoveryPath: string; positioningAngle: string;
+};
+
+const MOODS = [
+  "Wreck me emotionally",
+  "Take me somewhere strange",
+  "Make me think hard",
+  "Wrap me in a blanket",
+  "Surprise me with voice",
+  "Big, sweeping, epic",
+  "Sharp and a little dangerous",
+  "Something I can talk about for hours",
+];
+
+const CHANNELS = [
+  "A friend texting me 'you NEED this'",
+  "A bookseller's handwritten staff pick",
+  "A reviewer I've followed for years",
+  "An author interview that hooked me",
+  "A literary newsletter in my inbox",
+  "A reading community thread",
+  "An algorithm that finally got me right",
+];
+
+const TRIGGERS = [
+  "An opening line I can't shake",
+  "A premise I have to know more about",
+  "A cover that stops me dead",
+  "It's the book of the year and I want in",
+  "Someone I trust cried describing it",
+  "The author's story behind the book",
+  "It's the perfect comp for something I loved",
+];
+
+const books: Book[] = [
+  {
+    title: "Crying in H Mart", author: "Michelle Zauner", category: "Memoir",
+    moods: ["Wreck me emotionally", "Surprise me with voice", "Something I can talk about for hours"],
+    channels: ["A reviewer I've followed for years", "An author interview that hooked me", "A friend texting me 'you NEED this'"],
+    triggers: ["Someone I trust cried describing it", "The author's story behind the book", "An opening line I can't shake"],
+    coverColor: "#D4856A", isbn: "9781984898951",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/612676/crying-in-h-mart-by-michelle-zauner/9781984898951",
+    readerHook: "A memoir about grief, Korean American identity, and the way food carries memory.",
+    discoveryPath: "Arrives through reviews, author profiles, and deeply personal recommendations.",
+    positioningAngle: "Lead with voice and emotional precision — readers feel seen from page one.",
+  },
+  {
+    title: "All Fours", author: "Miranda July", category: "Fiction",
+    moods: ["Take me somewhere strange", "Sharp and a little dangerous", "Something I can talk about for hours"],
+    channels: ["A reading community thread", "A reviewer I've followed for years", "An author interview that hooked me"],
+    triggers: ["An opening line I can't shake", "The author's story behind the book", "It's the book of the year and I want in"],
+    coverColor: "#C3304B", isbn: "9780593190272",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/639464/all-fours-by-miranda-july/9780593190272",
+    readerHook: "A semi-autobiographical novel about desire, midlife, and a road trip that never quite happens.",
+    discoveryPath: "Sparks group-chat debate — travels through critics, podcasts, and word-of-mouth obsession.",
+    positioningAngle: "Lean into the conversation. This is a book people argue about, recommend, and re-read.",
+  },
+  {
+    title: "Tomorrow, and Tomorrow, and Tomorrow", author: "Gabrielle Zevin", category: "Fiction",
+    moods: ["Wreck me emotionally", "Wrap me in a blanket", "Something I can talk about for hours"],
+    channels: ["A friend texting me 'you NEED this'", "A bookseller's handwritten staff pick", "A literary newsletter in my inbox"],
+    triggers: ["Someone I trust cried describing it", "A premise I have to know more about", "It's the perfect comp for something I loved"],
+    coverColor: "#1F3A93", isbn: "9780735243361",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/690750/tomorrow-and-tomorrow-and-tomorrow-by-gabrielle-zevin/9780735243361",
+    readerHook: "Two friends, thirty years, and the video games they build to find their way back to each other.",
+    discoveryPath: "The quintessential handsell — staff picks, gift-givers, and 'you have to read this' texts.",
+    positioningAngle: "Sell the friendship first; the games are the world it's set in, not the hook.",
+  },
+  {
+    title: "James", author: "Percival Everett", category: "Fiction",
+    moods: ["Make me think hard", "Sharp and a little dangerous", "Big, sweeping, epic"],
+    channels: ["A reviewer I've followed for years", "An author interview that hooked me", "A reading community thread"],
+    triggers: ["It's the book of the year and I want in", "A premise I have to know more about", "An opening line I can't shake"],
+    coverColor: "#1F4D2B", isbn: "9780385550369",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/738749/james-by-percival-everett/9780385550369",
+    readerHook: "Huckleberry Finn retold from Jim's perspective — fierce, funny, and devastatingly alive.",
+    discoveryPath: "Arrives through prize lists, essays, and reviews that demand you make space for it.",
+    positioningAngle: "Lead with literary heft and cultural urgency. This is a book the year revolves around.",
+  },
+  {
+    title: "Lessons in Chemistry", author: "Bonnie Garmus", category: "Fiction",
+    moods: ["Wrap me in a blanket", "Sharp and a little dangerous", "Something I can talk about for hours"],
+    channels: ["A friend texting me 'you NEED this'", "A bookseller's handwritten staff pick", "A literary newsletter in my inbox"],
+    triggers: ["A premise I have to know more about", "A cover that stops me dead", "It's the perfect comp for something I loved"],
+    coverColor: "#E8A23A", isbn: "9780385697392",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/677234/lessons-in-chemistry-by-bonnie-garmus/9780385697392",
+    readerHook: "A chemist-turned-reluctant-TV-cook refuses to let the 1960s tell her who she is.",
+    discoveryPath: "Word-of-mouth that crossed every demographic — book clubs, gift tables, prestige TV halo.",
+    positioningAngle: "Promise warmth and bite in the same breath. Sell her, not the era.",
+  },
+  {
+    title: "The Secret History", author: "Donna Tartt", category: "Fiction",
+    moods: ["Sharp and a little dangerous", "Make me think hard", "Take me somewhere strange"],
+    channels: ["A reading community thread", "A bookseller's handwritten staff pick", "A friend texting me 'you NEED this'"],
+    triggers: ["An opening line I can't shake", "A premise I have to know more about", "It's the perfect comp for something I loved"],
+    coverColor: "#6B1F1F", isbn: "9781400031702",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/176619/the-secret-history-by-donna-tartt/9781400031702",
+    readerHook: "A New England college, a tight circle of classics students, and a death they all know about.",
+    discoveryPath: "Lives forever on dark-academia shelves, BookTok lists, and obsessive group reads.",
+    positioningAngle: "Don't argue. Quote the opening paragraph. The book sells itself.",
+  },
+  {
+    title: "Starlight", author: "Richard Wagamese", category: "Fiction",
+    moods: ["Wreck me emotionally", "Wrap me in a blanket", "Surprise me with voice"],
+    channels: ["A bookseller's handwritten staff pick", "A literary newsletter in my inbox", "A reviewer I've followed for years"],
+    triggers: ["Someone I trust cried describing it", "The author's story behind the book", "An opening line I can't shake"],
+    coverColor: "#2E4F3A", isbn: "9780771070877",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/575724/starlight-by-richard-wagamese/9780771070877",
+    readerHook: "The unfinished final novel from one of Canada's most beloved Indigenous writers — luminous, tender, alive.",
+    discoveryPath: "Canadian booksellers carry this one personally. It travels through trust.",
+    positioningAngle: "Honour Wagamese's voice and legacy. Let the writing do the lifting.",
+  },
+  {
+    title: "Trust", author: "Hernan Diaz", category: "Fiction",
+    moods: ["Make me think hard", "Big, sweeping, epic", "Sharp and a little dangerous"],
+    channels: ["A reviewer I've followed for years", "A literary newsletter in my inbox", "A reading community thread"],
+    triggers: ["It's the book of the year and I want in", "A premise I have to know more about", "A cover that stops me dead"],
+    coverColor: "#1B2A4E", isbn: "9780593420324",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/678664/trust-pulitzer-prize-winner-by-hernan-diaz/9780593420324",
+    readerHook: "A Pulitzer-winning novel about wealth, narrative, and who gets to tell the story of a fortune.",
+    discoveryPath: "Travels through long-form reviews, prize chatter, and reader communities that love form.",
+    positioningAngle: "Sell the structure. Four versions of one story is the irresistible hook.",
+  },
+  {
+    title: "Greek Lessons", author: "Han Kang", category: "Fiction",
+    moods: ["Take me somewhere strange", "Surprise me with voice", "Wreck me emotionally"],
+    channels: ["A reviewer I've followed for years", "A literary newsletter in my inbox", "An author interview that hooked me"],
+    triggers: ["An opening line I can't shake", "The author's story behind the book", "A cover that stops me dead"],
+    coverColor: "#7C6A52", isbn: "9780593595442",
+    catalogueUrl: "https://www.penguinrandomhouse.ca/books/717358/greek-lessons-by-han-kang/9780593595442",
+    readerHook: "A woman who has lost her voice. A teacher who is losing his sight. A quiet, devastating love story.",
+    discoveryPath: "Carried by literary newsletters, Nobel attention, and readers who pass Han Kang hand to hand.",
+    positioningAngle: "Lead with the author's stature, then let the silence of the prose speak.",
+  },
 ];
 
 const coverFor = (isbn: string) => `https://images.randomhouse.com/cover/${isbn}`;
 
 const QUESTIONS = [
-  { title: "What reading mood are you in?", options: ["Haunting", "Expansive", "Tender", "Strange", "Smart", "Cozy", "Hungry", "Book-club ready"] },
-  { title: "Where would this book most likely find you?", options: ["Bookstore table", "Long-form review", "Friend recommendation", "Author interview", "Newsletter", "Reader community", "Social media rabbit hole"] },
-  { title: "What makes you add a book to your TBR?", options: ["Voice", "Premise", "Cover", "Cultural conversation", "Emotional reaction", "Comparison titles", "Author story"] }
+  { eyebrow: "Vol. I — The Mood", title: "What kind of reading night is this?", subtitle: "Pick the one that's loudest right now. There are no wrong answers, only honest ones.", options: MOODS },
+  { eyebrow: "Vol. II — The Channel", title: "Where do you actually trust your next book to come from?", subtitle: "The algorithm is one option. So is the friend who never steers you wrong.", options: CHANNELS },
+  { eyebrow: "Vol. III — The Spark", title: "What gets a book onto your stack?", subtitle: "The thing that makes you stop scrolling, pick it up, and walk to the counter.", options: TRIGGERS },
 ];
 
-const THOMAS_FAVORITES = ["Cloud Cuckoo Land", "I Who Have Never Known Men", "The Berry Pickers"];
+const THOMAS_FAVORITES = ["James", "Tomorrow, and Tomorrow, and Tomorrow", "Crying in H Mart"];
 
 export function InkIvory() {
   const [step, setStep] = useState(0);
@@ -112,15 +242,23 @@ export function InkIvory() {
                 <span className="px-3 py-1 border border-dashed border-[var(--border-color)] opacity-50">Awaiting...</span>
               )}
             </div>
-            <h2 className="font-serif text-4xl md:text-5xl mb-12">{QUESTIONS[step - 1].title}</h2>
+            <div className="text-xs font-mono uppercase tracking-[0.3em] text-[var(--accent-gold)] mb-4">{QUESTIONS[step - 1].eyebrow}</div>
+            <h2 className="font-serif text-4xl md:text-5xl mb-4 leading-tight">{QUESTIONS[step - 1].title}</h2>
+            <p className="text-[var(--text-secondary)] font-light text-lg md:text-xl mb-12 max-w-2xl italic">{QUESTIONS[step - 1].subtitle}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {QUESTIONS[step - 1].options.map((option) => (
-                <button key={option} onClick={() => handleOptionSelect(option)} className="text-left px-6 py-5 border border-[var(--border-color)] bg-[var(--card-bg)] hover:border-[var(--accent-gold)] hover:bg-transparent transition-all duration-300 group">
-                  <span className="font-serif text-2xl group-hover:text-[var(--accent-gold)] transition-colors">{option}</span>
+              {QUESTIONS[step - 1].options.map((option, oIdx) => (
+                <button key={option} onClick={() => handleOptionSelect(option)} className="text-left px-6 py-5 border border-[var(--border-color)] bg-[var(--card-bg)] hover:border-[var(--accent-gold)] hover:bg-transparent transition-all duration-300 group flex items-baseline gap-4">
+                  <span className="font-mono text-xs text-[var(--text-secondary)] group-hover:text-[var(--accent-gold)] transition-colors w-8 shrink-0">{String(oIdx + 1).padStart(2, '0')}</span>
+                  <span className="font-serif text-xl md:text-2xl group-hover:text-[var(--accent-gold)] transition-colors leading-snug">{option}</span>
                 </button>
               ))}
             </div>
-            <div className="mt-12 text-sm text-[var(--text-secondary)] font-mono uppercase tracking-widest">Vol. {step} of {QUESTIONS.length}</div>
+            <div className="mt-12 flex items-center justify-between text-sm text-[var(--text-secondary)] font-mono uppercase tracking-widest">
+              <span>Vol. {step} of {QUESTIONS.length}</span>
+              {step > 1 && (
+                <button onClick={() => setStep(step - 1)} className="hover:text-[var(--accent-gold)] transition-colors">← Previous Volume</button>
+              )}
+            </div>
           </div>
         )}
 
