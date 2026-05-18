@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap');
 
 .ink-ivory-theme {
-  --bg-color: #0F0D0B;
-  --text-primary: #F5F0E8;
-  --text-secondary: #C8BEB0;
-  --accent-gold: #F7A14A;
+  --bg-color: #FFFFFF;
+  --text-primary: #0F0D0B;
+  --text-secondary: #5A544B;
+  --accent-gold: #F47B20;
   --accent-orange: #F47B20;
-  --card-bg: #1A1714;
-  --card-hover: #231f1c;
-  --border-color: #2D2824;
-  --receipt-bg: #EAE3D6;
-  --receipt-text: #2D2824;
+  --card-bg: #F7F4EE;
+  --card-hover: #EFEBE2;
+  --border-color: #D9D3C7;
+  --receipt-bg: #FFF8EC;
+  --receipt-text: #0F0D0B;
 }
 
 .ink-ivory-container {
